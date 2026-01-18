@@ -1,5 +1,7 @@
 #include <Python.h>
 
+#include <Python.h>
+
 static PyObject *py_one(PyObject *self, PyObject *args) {
     PyObject *list;
 
@@ -12,7 +14,13 @@ static PyObject *py_one(PyObject *self, PyObject *args) {
     for (Py_ssize_t i = 0; i < n; i++) {
         PyObject *item = PyList_GET_ITEM(list, i);
 
-        if (item == Py_True) {
+        int truth = PyObject_IsTrue(item);
+        if (truth < 0) {
+            // error during __bool__ o __len__
+            return NULL;
+        }
+
+        if (truth) {
             if (++count > 1)
                 Py_RETURN_FALSE;
         }
@@ -20,8 +28,10 @@ static PyObject *py_one(PyObject *self, PyObject *args) {
 
     if (count == 1)
         Py_RETURN_TRUE;
+
     Py_RETURN_FALSE;
 }
+
 
 static PyMethodDef methods[] = {
     {"one", py_one, METH_VARARGS, "True if exactly one True in list"},
