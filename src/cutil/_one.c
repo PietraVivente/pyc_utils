@@ -36,6 +36,6 @@ static struct PyModuleDef module = {
     methods
 };
 
-PyMODINIT_FUNC PyInit_one(void) {
+PyMODINIT_FUNC PyInit__one(void) {
     return PyModule_Create(&module);
 }
