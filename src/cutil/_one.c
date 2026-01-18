@@ -1,7 +1,5 @@
 #include <Python.h>
 
-#include <Python.h>
-
 static PyObject *py_one(PyObject *self, PyObject *args) {
     PyObject *list;
 
