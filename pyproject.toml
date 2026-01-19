@@ -4,10 +4,10 @@ build-backend = "setuptools.build_meta"
 
 [project]
 name = "pyc_utils"
-version = "0.1.0"
+version = "0.1.1"
 description = "Fast utilities for Python, with optional C extensions"
 readme = "README.md"
-requires-python = ">=3.8"
+requires-python = ">=3.12"
 license = {text = "MIT"}
 authors = [{name = "PietraVivente"}]
 
