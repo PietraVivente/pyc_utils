@@ -14,7 +14,6 @@ static PyObject *py_one(PyObject *self, PyObject *args) {
 
         int truth = PyObject_IsTrue(item);
         if (truth < 0) {
-            // error during __bool__ o __len__
             return NULL;
         }
 
@@ -24,15 +23,14 @@ static PyObject *py_one(PyObject *self, PyObject *args) {
         }
     }
 
-    if (count == 1)
-        Py_RETURN_TRUE;
+    if (count == 1) Py_RETURN_TRUE;
 
     Py_RETURN_FALSE;
 }
 
 
 static PyMethodDef methods[] = {
-    {"one", py_one, METH_VARARGS, "True if exactly one True in list"},
+    {"one", py_one, METH_VARARGS, "True if exactly one True valid element in list"},
     {NULL, NULL, 0, NULL}
 };
 

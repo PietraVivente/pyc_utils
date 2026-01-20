@@ -1,7 +1,8 @@
 from setuptools import setup, Extension, find_packages
 
 ext_modules = [
-    Extension("pyc_utils._one", sources=["src/cutil/_one.c"])
+    Extension("pyc_utils._one", sources=["src/cutil/_one.c"]),
+    Extension("pyc_utils._thereAre", sources=["src/cutil/_thereAre.c"])
 ]
 
 setup(
